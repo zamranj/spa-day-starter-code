@@ -11,13 +11,18 @@ public class User {
     private Integer id;
     private LocalDate date;
 
+    public User(){
+        this.id =userId;
+        userId++;
+    }
+
     public User(String username, String email, String password){
+        this();
         date = LocalDate.now();
         this.username = username;
         this.email = email;
         this.password = password;
-        this.id =userId;
-        userId++;
+
     }
 
 
