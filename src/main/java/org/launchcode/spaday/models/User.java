@@ -16,7 +16,7 @@ public class User {
         userId++;
     }
 
-    public User(String username, String email, String password){
+    public User(String username, String email){
         this();
         date = LocalDate.now();
         this.username = username;
@@ -24,6 +24,7 @@ public class User {
         this.password = password;
 
     }
+
 
 
     public String getUsername() {
@@ -52,5 +53,10 @@ public class User {
 
     public Integer getId() {
         return this.id;
+    }
+
+    @Override
+    public String toString() {
+        return username +"|"+ date;
     }
 }

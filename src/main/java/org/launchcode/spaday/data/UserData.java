@@ -7,19 +7,19 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class UserData {
-    private static final Map<Integer, User> users =new HashMap<>();
+    private static final Map<Integer, String> users =new HashMap<>();
 
     public static void add(User user){
 
-        users.put(user.getId(), user);
+        users.put(user.getId(), user.getEmail());
 
     }
 
-    public static Collection<User> getAll(){
+    public static Collection<String> getAll(){
         return users.values();
     }
 
-    public static User getById(int id){
+    public static String getById(int id){
 
         return users.get(id);
     }

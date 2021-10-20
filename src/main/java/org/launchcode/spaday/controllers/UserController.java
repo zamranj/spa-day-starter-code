@@ -1,5 +1,6 @@
 package org.launchcode.spaday.controllers;
 
+import org.launchcode.spaday.data.UserData;
 import org.launchcode.spaday.models.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,25 +13,32 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("user")
 public class UserController {
 
-    @GetMapping("add")
+    @GetMapping
     public String displayAddUserForm(){
 
-        return "user/add";
+        return "/user/add";
     }
-    @PostMapping("add")
+
+    @GetMapping("admin")
+    public String displayUsersForm(Model model){
+        model.addAttribute("users", UserData.getAll());
+        return "/user/admin";
+    }
+
+
+    @PostMapping
     public String processAddUserForm(Model model, @ModelAttribute User user,
-                                     String verify) {
-        // add form submission handling code here
-        if(user.getEmail().equals(verify)){
+                                     String verify){
+        if(user.getPassword().equals(verify)){
             return "user/index";
-        }else {
-            model.addAttribute("error", "Passwords do not match!");
-            model.addAttribute("username", user.getUsername());
+        }else{
+            model.addAttribute("error","Passwords do not match!");
+            model.addAttribute("username",user.getUsername());
             model.addAttribute("email", user.getEmail());
-
-            return "user/add";
+            UserData.add(new User(user.getUsername(),user.getEmail()));
+            return "/user/add";
         }
-
     }
+
 
 }

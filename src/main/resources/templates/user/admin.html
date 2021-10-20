@@ -6,10 +6,16 @@
     <title>user/index</title>
 </head>
 <body>
-     <h1>index.html</h1><br>
-    <div>
-        <a th:href="@{/}">Welcome to Spa-day</a>
-    </div><br>
-
+<div>
+    <h1>Display Userdata</h1>
+</div>
+<div>
+    <ol>
+        <th:block th:each="user:${users}">
+            <li th:text="${user.username}"></li>
+            <li th:text="${user.email}"></li>
+        </th:block>
+    </ol>
+</div>
 </body>
 </html>
