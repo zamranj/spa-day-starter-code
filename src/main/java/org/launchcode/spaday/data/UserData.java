@@ -7,11 +7,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class UserData {
-    private static final Map<Integer, String> users =new HashMap<>();
+    private static final Map<String, String> users =new HashMap<>();
 
     public static void add(User user){
 
-        users.put(user.getId(), user.getEmail());
+        users.put(user.getUsername(), user.getEmail());
 
     }
 
