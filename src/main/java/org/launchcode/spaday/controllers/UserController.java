@@ -19,17 +19,11 @@ public class UserController {
         return "/user/add";
     }
 
-    @GetMapping("admin")
-    public String displayUsersForm(Model model){
-        model.addAttribute("users", UserData.getAll());
-        return "/user/admin";
-    }
-
-
     @PostMapping
     public String processAddUserForm(Model model, @ModelAttribute User user,
                                      String verify){
         if(user.getPassword().equals(verify)){
+            model.addAttribute("users", UserData.getAll());
             return "user/index";
         }else{
             model.addAttribute("error","Passwords do not match!");

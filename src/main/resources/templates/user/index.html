@@ -10,6 +10,12 @@
     <div>
         <a th:href="@{/}">Welcome to Spa-day</a>
     </div><br>
-
+     <div>
+         <ol>
+             <th:block th:each="user:${users}">
+                 <li th:text="${user.username}"></li>
+             </th:block>
+         </ol>
+     </div>
 </body>
 </html>

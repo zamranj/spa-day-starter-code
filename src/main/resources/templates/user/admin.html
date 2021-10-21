@@ -8,12 +8,12 @@
 <body>
 <div>
     <h1>Display Userdata</h1>
-</div>
+</div><br>
 <div>
     <ol>
         <th:block th:each="user:${users}">
-            <li th:text="${user.username}"></li>
-            <li th:text="${user.email}"></li>
+            <li th:text="${user.username}">Username</li>
+            <li th:text="${user.email}">UserEmail</li>
         </th:block>
     </ol>
 </div>
