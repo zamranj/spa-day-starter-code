@@ -55,6 +55,10 @@ public class User {
         return this.id;
     }
 
+    public LocalDate getDate() {
+        return date;
+    }
+
     @Override
     public String toString() {
         return username +"|"+ date;

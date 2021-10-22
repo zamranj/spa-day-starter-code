@@ -13,7 +13,8 @@
      <div>
          <ol>
              <th:block th:each="user:${users}">
-                 <li th:text="${user.username}"></li>
+<!--                 <li th:text="'Username: '+${user.username}" th:href="@{ '/user/' + ${user.username} }"></li>-->
+                 <li th:text="'Username: '+${user.username}+' Email: '+${user.email}+' Date: '+${user.date}"></li>
              </th:block>
          </ol>
      </div>
