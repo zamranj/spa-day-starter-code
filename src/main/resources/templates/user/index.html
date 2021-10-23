@@ -11,12 +11,20 @@
         <a th:href="@{/}">Welcome to Spa-day</a>
     </div><br>
      <div>
-         <ol>
-             <th:block th:each="user:${users}">
-<!--                 <li th:text="'Username: '+${user.username}" th:href="@{ '/user/' + ${user.username} }"></li>-->
-                 <li th:text="'Username: '+${user.username}+' Email: '+${user.email}+' Date: '+${user.date}"></li>
-             </th:block>
-         </ol>
+<!--         <ol>-->
+<!--             <th:block th:each="user:${users}">-->
+<!--&lt;!&ndash;                 <li th:text="'Username: '+${user.username}" th:href="@{ '/user/' + ${user.username} }"></li>&ndash;&gt;-->
+<!--                 <li th:text="'Username: '+${user.username}+' Email: '+${user.email}+' Date: '+${user.date}"></li>-->
+<!--             </th:block>-->
+<!--         </ol>-->
+         <ul>
+             <li th:each="user:${users}">
+                 <label>
+                     Username:
+                 </label>
+                 <a th:href="@{'/detail'}" th:text="${user.username}"></a>
+             </li>
+         </ul>
      </div>
 </body>
 </html>
