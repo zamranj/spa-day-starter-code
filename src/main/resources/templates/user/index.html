@@ -22,7 +22,7 @@
                  <label>
                      Username:
                  </label>
-                 <a th:href="@{'/detail'}" th:text="${user.username}"></a>
+                 <a th:href="@{'/user/detail/'+${user.id}}" th:text="${user.username}"></a>
              </li>
          </ul>
      </div>

@@ -16,11 +16,12 @@ public class UserController {
         return "/user/add";
     }
 
-    @GetMapping("/{username}")
-    public String displayUserDetails(Model model, @PathVariable String username){
-        model.addAttribute("username", username);
+    @GetMapping("/detail/{id}")
+    public String displayUserDetails(Model model, @PathVariable int id ){
 
-        return "detail";
+        User user = UserData.getById(id);
+        model.addAttribute("user", user);
+        return "/user/detail";
     }
 
 
